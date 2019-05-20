@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:elevation="15dp"
+        android:background="@drawable/player_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/arrow_down"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:tint="@color/colorDark"
+            android:src="@drawable/ic_dropdown_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <LinearLayout
+            android:layout_above="@+id/compositions_controller"
+            android:layout_below="@id/arrow_down"
+            android:id="@+id/player_cont"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:layout_gravity="center"
+                android:id="@+id/compositions_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/current_audio_img"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:elevation="10dp"
+                    android:background="@drawable/choose_directory_button_background"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"/>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+                android:gravity="center"
+                android:id="@+id/player"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <RelativeLayout
+                    android:layout_weight="1"
+                    android:id="@+id/audio_description_fragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/add_audio"
+                        android:layout_marginLeft="20dp"
+                        android:layout_centerVertical="true"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/ic_add_outline_24"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_toLeftOf="@+id/more"
+                        android:layout_toRightOf="@+id/add_audio"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:id="@+id/song_name"
+                            android:focusable="true"
+                            android:singleLine="true"
+                            android:scrollHorizontally="true"
+                            android:ellipsize="marquee"
+                            android:marqueeRepeatLimit ="marquee_forever"
+                            android:gravity="center"
+                            android:textSize="25sp"
+                            android:textColor="@color/colorDark"
+                            android:text="Название песни Название песни Название песни Название песни ляляля ахаха"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    <TextView
+                            android:id="@+id/singer_name"
+                            android:singleLine="true"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Имя исполнителя feat имя исполнителя"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <ImageView
+                        android:id="@+id/more"
+                        android:layout_marginRight="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/ic_ic_more_24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <SeekBar
+                        android:id="@+id/seek_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:layout_below="@id/seek_bar"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorLight"
+                        android:text="0:29"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <TextView
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/seek_bar"
+                        android:textSize="14sp"
+                        android:textColor="@color/colorLight"
+                        android:text="-3:44"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:layout_marginRight="30dp"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/ic_skip_previous_48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                <LinearLayout
+                        android:elevation="5dp"
+                        android:layout_margin="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/circle_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:src="@drawable/ic_pause_48"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_marginLeft="30dp"
+                        android:tint="@color/colorPrimaryDark"
+                        android:src="@drawable/ic_skip_next_48"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/compositions_controller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                android:layout_marginLeft="20dp"
+                android:padding="5dp"
+                android:background="@drawable/circle_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:src="@drawable/ic_shuffle_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:tint="@color/colorPrimaryDark"
+                    android:src="@drawable/ic_repeat_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

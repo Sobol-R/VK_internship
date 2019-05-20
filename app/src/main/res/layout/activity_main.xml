@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <!--<fragment-->
+            <!--android:id="@+id/choose_directory_fragment"-->
+            <!--android:name="com.Sobol.vkplayer.ChooseDirectoryFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+    <!--<fragment-->
+            <!--android:id="@+id/mini_player"-->
+            <!--android:name="com.Sobol.vkplayer.MiniPlayerFragment"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    <!--<FrameLayout-->
+            <!--android:elevation="16dp"-->
+            <!--android:id="@+id/player_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+    <!--</FrameLayout>-->
+
+    <com.Sobol.vkplayer.PlayerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </com.Sobol.vkplayer.PlayerView>
+
+</RelativeLayout>

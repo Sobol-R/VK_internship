@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VKPlayer</string>
+    <string name="choose_directory_title">Откуда играть музыку?</string>
+    <string name="choose_directory_todo_title">Выберите папку с аудиозаписями</string>
+    <string name="choose_directory_button_title">Выбрать папку</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
