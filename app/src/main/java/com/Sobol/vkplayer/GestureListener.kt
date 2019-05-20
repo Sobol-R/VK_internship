@@ -7,8 +7,9 @@ import android.widget.Toast
 
 class GestureListener(val v: View) : GestureDetector.SimpleOnGestureListener() {
 
-    private val SWIPE_THRESHOLD = 100
-    private val SWIPE_VELOCITY_THRESHOLD = 100
+    private val SWIPE_THRESHOLD = 1000
+    private val SWIPE_VELOCITY_THRESHOLD = 1000
+    var result = false
 
     override fun onDown(e: MotionEvent): Boolean {
         //System.out.println("onDown")
@@ -16,18 +17,18 @@ class GestureListener(val v: View) : GestureDetector.SimpleOnGestureListener() {
     }
 
     override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
-        System.out.println("onFling")
-        var result = false
         try {
-            val diffY = e2.y - e1.y
-            if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
-                if (diffY > 0) {
-                    onSwipeBottom()
-                } else {
-                    //onSwipeTop()
-                }
-                result = true
-            }
+           swipeBottom()
+            result = true
+//            val diffY = e2.y - e1.y
+//            if (Math.abs(diffY) > SWIPE_THRESHOLD && Math.abs(velocityY) > SWIPE_VELOCITY_THRESHOLD) {
+//                if (diffY > 0) {
+//                    onSwipeBottom()
+//                } else {
+//                    //onSwipeTop()
+//                }
+//                result = true
+//            }
         } catch (exception: Exception) {
             exception.printStackTrace()
         }
@@ -35,10 +36,10 @@ class GestureListener(val v: View) : GestureDetector.SimpleOnGestureListener() {
         return result
     }
 
-    fun onSwipeBottom() {
+    fun swipeBottom() {
         Toast.makeText(v.context, "bottom", Toast.LENGTH_SHORT).show()
         v.animate()
             .y(v.height.toFloat())
-            .duration = 150
+            .duration = 50
     }
 }

@@ -1,29 +1,43 @@
 package com.Sobol.vkplayer
 
+import android.animation.Animator
 import android.content.Context
 import android.util.AttributeSet
 import android.view.*
 import android.widget.RelativeLayout
+import android.widget.Toast
 
 class PlayerView(context: Context?, attrs: AttributeSet?) :
-    RelativeLayout(context, attrs),
-    View.OnTouchListener {
+    RelativeLayout(context, attrs) {
 
     var gestureDetector: GestureDetector? = null
+    var gestureListener: GestureListener? = null
+    var dY = 0.0f
+    val view = this
 
     init {
         LayoutInflater.from(context).inflate(R.layout.player_view, this, true)
-        gestureDetector = GestureDetector(context, GestureListener(this))
+        gestureListener = GestureListener(this)
+        gestureDetector = GestureDetector(context, gestureListener)
     }
 
-    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        System.out.println("onInterceptTouchEvent")
-        return gestureDetector?.onTouchEvent(ev) ?: false
-    }
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        val result = gestureDetector?.onTouchEvent(event) ?: false
 
-    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        System.out.println("onTouch")
-        return gestureDetector?.onTouchEvent(event) ?: false
+        when (event?.action) {
+            MotionEvent.ACTION_DOWN -> {
+                dY = this.y - event.rawY
+            }
+            MotionEvent.ACTION_MOVE -> {
+                if (event.rawY + dY > 0) {
+                    this.animate()
+                        .y(event.rawY + dY)
+                        .duration = 0
+                }
+            }
+        }
+
+        return result
     }
 
 }

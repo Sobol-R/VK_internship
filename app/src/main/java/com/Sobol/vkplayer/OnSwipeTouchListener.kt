@@ -26,7 +26,6 @@ class OnSwipeTouchListener(val context: Context) : OnTouchListener {
         }
 
         override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
-            System.out.println("on")
             var result = false
             try {
                 val diffY = e2.y - e1.y

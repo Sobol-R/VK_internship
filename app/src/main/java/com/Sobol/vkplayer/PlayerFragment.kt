@@ -42,49 +42,49 @@ class PlayerFragment : Fragment() {
             setLanscapeScreen()
 
         view.bringToFront()
-//        view.setOnTouchListener(object : View.OnTouchListener {
-//            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-//                when (event?.action) {
-//                    MotionEvent.ACTION_DOWN -> {
-//                        dY = v!!.y - event.rawY
-//                    }
-//                    MotionEvent.ACTION_MOVE -> {
-//                        if (event.rawY + dY > 0) {
-//                            v!!.animate()
-//                                .y(event.rawY + dY)
-//                                .duration = 0
-//                        }
-//                    }
-//                    MotionEvent.ACTION_UP -> {
-//                        if (v!!.y >= v.height/5) {
-//                            v.animate()
-//                                .setListener(object : Animator.AnimatorListener {
-//                                    override fun onAnimationRepeat(animation: Animator?) {
-//                                    }
-//
-//                                    override fun onAnimationEnd(animation: Animator?) {
-//                                        fragmentManager?.popBackStack()
-//                                    }
-//
-//                                    override fun onAnimationCancel(animation: Animator?) {
-//                                    }
-//
-//                                    override fun onAnimationStart(animation: Animator?) {
-//                                    }
-//                                })
-//                                .y(v.height.toFloat())
-//                                .duration = 150
-//                        } else {
-//                            v.animate()
-//                                .y(0f)
-//                                .duration = 150
-//                        }
-//                    }
-//                }
-//
-//                return true
-//            }
-//        })
+        view.setOnTouchListener(object : View.OnTouchListener {
+            override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                when (event?.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        dY = v!!.y - event.rawY
+                    }
+                    MotionEvent.ACTION_MOVE -> {
+                        if (event.rawY + dY > 0) {
+                            v!!.animate()
+                                .y(event.rawY + dY)
+                                .duration = 0
+                        }
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        if (v!!.y >= v.height/5) {
+                            v.animate()
+                                .setListener(object : Animator.AnimatorListener {
+                                    override fun onAnimationRepeat(animation: Animator?) {
+                                    }
+
+                                    override fun onAnimationEnd(animation: Animator?) {
+                                        fragmentManager?.popBackStack()
+                                    }
+
+                                    override fun onAnimationCancel(animation: Animator?) {
+                                    }
+
+                                    override fun onAnimationStart(animation: Animator?) {
+                                    }
+                                })
+                                .y(v.height.toFloat())
+                                .duration = 150
+                        } else {
+                            v.animate()
+                                .y(0f)
+                                .duration = 150
+                        }
+                    }
+                }
+
+                return true
+            }
+        })
         //anim()
     }
 
