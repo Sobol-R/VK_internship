@@ -43,26 +43,4 @@ class ChooseDirectoryFragment : Fragment() {
             .setAction(Intent.ACTION_GET_CONTENT)
         startActivityForResult(Intent.createChooser(intent, "open file"), 111)
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 111) {
-            System.out.println(data?.data.toString())
-            prepare(data?.data!!)
-        }
-    }
-
-    fun prepare(uri: Uri) {
-        val mediaMetadataRetriever = MediaMetadataRetriever()
-        mediaMetadataRetriever.setDataSource(context, uri)
-        val artist = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST)
-        val title = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE)
-        val duration = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt()
-        val audioModel =  AudioModel(artist, title, duration)
-
-//        val mediaPlayer = MediaPlayer()
-//        mediaPlayer.setDataSource(context, uri)
-//        mediaPlayer.prepare()
-//        mediaPlayer.start()
-    }
 }

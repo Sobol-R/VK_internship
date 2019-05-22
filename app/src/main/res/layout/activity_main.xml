@@ -1,34 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+        android:id="@+id/main_content"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <!--<fragment-->
-            <!--android:id="@+id/choose_directory_fragment"-->
-            <!--android:name="com.Sobol.vkplayer.ChooseDirectoryFragment"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-
-    <!--<fragment-->
-            <!--android:id="@+id/mini_player"-->
-            <!--android:name="com.Sobol.vkplayer.MiniPlayerFragment"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
-
-    <!--<FrameLayout-->
-            <!--android:elevation="16dp"-->
-            <!--android:id="@+id/player_content"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent">-->
-    <!--</FrameLayout>-->
-
-    <com.Sobol.vkplayer.PlayerView
+    <RelativeLayout
+            android:gravity="center"
+            android:background="@color/colorBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-    </com.Sobol.vkplayer.PlayerView>
+
+        <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/choose_directory_title"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/colorDark"
+                android:text="@string/choose_directory_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/choose_directory_todo_title"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/choose_directory_title"
+                android:layout_centerHorizontal="true"
+                android:textSize="14sp"
+                android:textColor="@color/colorLight"
+                android:text="@string/choose_directory_todo_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <Button
+                android:stateListAnimator="@null"
+                android:elevation="15dp"
+                android:id="@+id/choose_directory_button"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/choose_directory_todo_title"
+                android:layout_centerHorizontal="true"
+                android:paddingRight="20dp"
+                android:paddingLeft="20dp"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:background="@drawable/choose_directory_button_background"
+                android:textColor="@color/colorWhite"
+                android:text="@string/choose_directory_button_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
 
 </RelativeLayout>
