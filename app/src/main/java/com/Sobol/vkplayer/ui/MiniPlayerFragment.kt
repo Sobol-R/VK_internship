@@ -1,4 +1,4 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 
 import android.animation.ValueAnimator
@@ -9,9 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateInterpolator
-import android.view.animation.LinearInterpolator
+import com.Sobol.vkplayer.R
 import kotlinx.android.synthetic.main.fragment_mini_player.*
-import kotlinx.android.synthetic.main.fragment_player.*
 
 class MiniPlayerFragment : Fragment() {
 

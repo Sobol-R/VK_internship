@@ -1,4 +1,4 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 import android.animation.Animator
 import android.animation.ObjectAnimator

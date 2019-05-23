@@ -1,4 +1,4 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -8,15 +8,13 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
-import android.text.method.ScrollingMovementMethod
 import android.util.DisplayMetrics
 import android.view.*
 import android.view.animation.AccelerateInterpolator
-import android.view.animation.AnimationUtils
-import android.widget.FrameLayout
 import kotlinx.android.synthetic.main.fragment_player.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import com.Sobol.vkplayer.R
 
 class PlayerFragment : Fragment() {
     var dY: Float = 0.0f
@@ -89,7 +87,9 @@ class PlayerFragment : Fragment() {
     }
 
     fun setSeekBar() {
-        seek_bar.progressDrawable.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimaryLight), PorterDuff.Mode.SRC_IN)
+        seek_bar.progressDrawable.setColorFilter(ContextCompat.getColor(context!!,
+            R.color.colorPrimaryLight
+        ), PorterDuff.Mode.SRC_IN)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             seek_bar.thumb.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN)
         }

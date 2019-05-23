@@ -1,31 +1,28 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
-import android.animation.Animator
-import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.PorterDuff
-import android.os.Build
+import android.net.Uri
 import android.support.v4.content.ContextCompat
-import android.util.AttributeSet
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
-import android.widget.Toast
+import com.Sobol.vkplayer.R
 import com.Sobol.vkplayer.model.AudioModel
 import com.Sobol.vkplayer.model.Player
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_player.*
+import com.Sobol.vkplayer.service.PlayerService
 import kotlinx.android.synthetic.main.player_view.view.*
 
-class PlayerView(context: Context?, val audioModel: AudioModel, val mediaPlayer: Player) :
+class PlayerView(context: Context?, val audioModel: AudioModel, val mediaPlayer: Player, uri: Uri) :
     RelativeLayout(context) {
 
     var gestureDetector: GestureDetector? = null
     var gestureListener: GestureListener? = null
     var dY = 0.0f
-    var activity: Activity? = null
+    var activity: Activity
 
     init {
         LayoutInflater.from(context).inflate(R.layout.player_view, this, true)
@@ -35,7 +32,12 @@ class PlayerView(context: Context?, val audioModel: AudioModel, val mediaPlayer:
         setImgSize()
         setSeekBar()
         setData()
-        setPlayerUpdate()
+        //setPlayerUpdate()
+
+        val intent = Intent(activity, PlayerService::class.java)
+        intent.putExtra("uri", uri)
+        activity.startService(intent)
+
         switcher.setOnClickListener { updateSwitcher() }
         mini_player_switcher.setOnClickListener { updateSwitcher() }
         gestureListener = GestureListener(this, cont, full_player)
@@ -89,10 +91,10 @@ class PlayerView(context: Context?, val audioModel: AudioModel, val mediaPlayer:
     }
 
     fun setSeekBar() {
-        seek_bar.progressDrawable.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimaryLight), PorterDuff.Mode.SRC_IN)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            seek_bar.thumb.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN)
-        }
+        seek_bar.progressDrawable.setColorFilter(ContextCompat.getColor(context!!,
+            R.color.colorPrimaryLight
+        ), PorterDuff.Mode.SRC_IN)
+        seek_bar.thumb.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimaryDark), PorterDuff.Mode.SRC_IN)
     }
 
     fun setImgSize() {

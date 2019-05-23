@@ -1,11 +1,13 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 import android.content.Intent
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.RelativeLayout
+import com.Sobol.vkplayer.R
 import com.Sobol.vkplayer.model.AudioModel
 import com.Sobol.vkplayer.model.Player
 import kotlinx.android.synthetic.main.activity_main.*
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun prepare(uri: Uri) {
+        Log.d("ur1", uri.toString())
         val mediaMetadataRetriever = MediaMetadataRetriever()
         mediaMetadataRetriever.setDataSource(this, uri)
         val artist = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST)
@@ -41,11 +44,11 @@ class MainActivity : AppCompatActivity() {
         val duration = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt()
         val audioModel =  AudioModel(artist, title, duration)
         val player = Player(this, uri)
-        setPlayerView(audioModel, player)
+        setPlayerView(audioModel, player, uri)
     }
 
-    fun setPlayerView(audioModel: AudioModel, player: Player) {
-        val playerView = PlayerView(this, audioModel, player)
+    fun setPlayerView(audioModel: AudioModel, player: Player, uri: Uri) {
+        val playerView = PlayerView(this, audioModel, player, uri)
         val params = RelativeLayout.LayoutParams(
             RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT
         )

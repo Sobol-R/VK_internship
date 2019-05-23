@@ -7,7 +7,7 @@
         android:background="@drawable/player_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".PlayerFragment">
+        tools:context=".ui.PlayerFragment">
 
     <ImageView
             android:id="@+id/arrow_down"

@@ -1,4 +1,4 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 enum class Action {
     PLAY,

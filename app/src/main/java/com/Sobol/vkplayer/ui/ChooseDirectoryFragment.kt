@@ -1,26 +1,14 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.media.MediaMetadataRetriever
-import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
-import android.provider.MediaStore
 import android.support.v4.app.Fragment
-import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.Sobol.vkplayer.model.AudioModel
+import com.Sobol.vkplayer.R
 
 import kotlinx.android.synthetic.main.fragment_choose_derictory.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.nio.file.attribute.BasicFileAttributes
 
 class ChooseDirectoryFragment : Fragment() {
 

@@ -1,4 +1,4 @@
-package com.Sobol.vkplayer
+package com.Sobol.vkplayer.ui
 
 import android.content.Context
 import android.view.MotionEvent
