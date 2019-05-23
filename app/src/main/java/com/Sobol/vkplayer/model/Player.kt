@@ -24,8 +24,8 @@ class Player(context: Context, uri: Uri) {
         mediaPlayer.start()
     }
 
-    fun stop() {
-        mediaPlayer.stop()
+    fun pause() {
+        mediaPlayer.pause()
     }
 
     fun updatePlayerView(timeListened: TextView, timeLeft: TextView,

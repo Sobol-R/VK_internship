@@ -168,6 +168,7 @@
                             android:layout_height="wrap_content"/>
 
                     <LinearLayout
+                            android:id="@+id/switcher"
                             android:elevation="5dp"
                             android:layout_margin="10dp"
                             android:padding="10dp"
@@ -176,6 +177,7 @@
                             android:layout_height="wrap_content">
 
                         <ImageView
+                                android:id="@+id/switcher_image"
                                 android:src="@drawable/ic_pause_48"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -279,16 +281,17 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:background="@drawable/ic_mini_player_next_28"
-                android:layout_width="wrap_content"
+                android:layout_width="28dp"
                 android:layout_height="wrap_content"/>
 
         <ImageView
+                android:tint="@color/colorPrimaryDark"
                 android:layout_marginRight="15dp"
-                android:background="@drawable/ic_pause_28"
-                android:id="@+id/stop"
+                android:src="@drawable/ic_pause_28"
+                android:id="@+id/mini_player_switcher"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/next"
-                android:layout_width="wrap_content"
+                android:layout_width="28dp"
                 android:layout_height="wrap_content"/>
 
         <TextView
@@ -297,7 +300,7 @@
                 android:textColor="@color/colorLight"
                 android:text="-3.48"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/stop"
+                android:layout_toLeftOf="@+id/mini_player_switcher"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

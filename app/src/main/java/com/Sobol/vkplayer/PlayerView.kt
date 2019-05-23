@@ -36,10 +36,25 @@ class PlayerView(context: Context?, val audioModel: AudioModel, val mediaPlayer:
         setSeekBar()
         setData()
         setPlayerUpdate()
+        switcher.setOnClickListener { updateSwitcher() }
+        mini_player_switcher.setOnClickListener { updateSwitcher() }
         gestureListener = GestureListener(this, cont, full_player)
         gestureDetector = GestureDetector(context, gestureListener)
         if (getScreenHeight() < getScreenWidth()) {
             setLanscapeScreen()
+        }
+    }
+
+    fun updateSwitcher() {
+        if (mediaPlayer.mediaPlayer.isPlaying) {
+            mediaPlayer.pause()
+            switcher_image.setImageResource(R.drawable.ic_play_48)
+            mini_player_switcher.setImageResource(R.drawable.ic_play_48)
+        }
+        else {
+            mediaPlayer.play()
+            switcher_image.setImageResource(R.drawable.ic_pause_48)
+            mini_player_switcher.setImageResource(R.drawable.ic_pause_28)
         }
     }
 
