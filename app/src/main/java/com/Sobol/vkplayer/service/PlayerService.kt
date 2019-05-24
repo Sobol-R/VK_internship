@@ -29,49 +29,42 @@ class PlayerService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        var notifManager: NotificationManager? = null
-        val NOTIFY_ID = 0 // ID of notification
-        val id = "12345qwerty" // default_channel_id
-        val channelTitle = "qwerty" // Default Channel
+        var notifManager: NotificationManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val id = "12345qwerty"
+        val channelTitle = "qwerty"
         val intent: Intent
         val pendingIntent: PendingIntent
         val builder: NotificationCompat.Builder
-        notifManager = this.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_HIGH
             var mChannel: NotificationChannel? = notifManager.getNotificationChannel(id)
             if (mChannel == null) {
                 mChannel = NotificationChannel(id, channelTitle, importance)
-                mChannel.enableVibration(true)
-                mChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
                 notifManager.createNotificationChannel(mChannel)
             }
             builder = NotificationCompat.Builder(this, id)
             intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-            builder.setContentTitle("text")                            // required
-                .setSmallIcon(R.drawable.ic_btn_speak_now)   // required
-                .setContentText("text") // required
+            builder.setContentTitle("text")
+                .setSmallIcon(R.drawable.presence_audio_online)
+                .setContentText("text")
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setTicker("text")
-                .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
         } else {
             builder = NotificationCompat.Builder(this, id)
             intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             pendingIntent = PendingIntent.getActivity(this, 0, intent, 0)
-            builder.setContentTitle("text")                            // required
-                .setSmallIcon(R.drawable.ic_btn_speak_now)   // required
-                .setContentText("this") // required
+            builder.setContentTitle("text")
+                .setSmallIcon(R.drawable.presence_audio_online)
+                .setContentText("this")
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setAutoCancel(true)
                 .setContentIntent(pendingIntent)
                 .setTicker("this")
-                .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
-                .setPriority(Notification.PRIORITY_HIGH)
         }
         val notification = builder.build()
 
